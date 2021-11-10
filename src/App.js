@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 
 function App() {
+  const logged = localStorage.getItem("auth_token");
   return (
     <Router>
       <div className="App">
@@ -33,7 +34,9 @@ function App() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             APP NAME HERE
           </Typography>
-         <Button color="inherit"> <Link style={{textDecoration: 'none', color: 'white'}} to="/login">Login</Link></Button>
+          {!logged && (
+            <Button color="inherit"> <Link style={{textDecoration: 'none', color: 'white'}} to="/login">Login</Link></Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

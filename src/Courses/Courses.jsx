@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import CreateCourseModal from './CreateCourseModal';
+const axios = require('axios').default;
 
 const columns = [
   { field: 'id', headerName: 'ID', flex: true,resizable: true  },
@@ -26,7 +27,20 @@ const rows = [
 
 export default function Courses () {
   const [openCreateModal, setOpenCreateModal] = useState(false);
-  
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/courses');
+        const data = response.data;
+        console.log(response);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchPosts();
+  }, []);
   return (
     <Box style={{margin: 'auto'}} padding={5}>
     <div>

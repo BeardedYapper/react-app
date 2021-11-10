@@ -1,14 +1,37 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
-import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-class SignUp extends Component {
-  render() {
-    return (
-      <Box
+const axios = require('axios').default;
+
+export default function SignUp () {
+const [email,setEmail] = useState('');
+const [password,setPassword] = useState('');
+const [repeatPassword,setRepeatPassword] = useState('');
+const navigate = useNavigate();
+  const useSignUp = async() => {
+    try {
+      const response = await axios.post('http://localhost:3001/users', {
+        user: {
+          email,
+          password,
+          password_confirmation: repeatPassword
+        }
+      });
+      const data = response.data;
+      localStorage.setItem("auth_token", data.auth_token);
+      navigate('/home')
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return (
+    <Box
       component="form"
       noValidate
       autoComplete="off"
@@ -24,6 +47,8 @@ class SignUp extends Component {
             id="outlined-required"
             label="Email"
             style={{width:'300px', marginTop: '20px'}}
+            value={email}
+            onChange={(e)=>setEmail(e.currentTarget.value)}
           />
           <TextField
             required
@@ -31,13 +56,22 @@ class SignUp extends Component {
             label="Password"
             type="password"
             style={{width:'300px', marginTop: '20px'}}
+            value={password}
+            onChange={(e)=>setPassword(e.currentTarget.value)}
           />
-          <Button component={Link} to="/home" color="success" size="large" style={{ marginTop: '20px'}} variant="contained">Sign Up</Button>
+          <TextField
+            required
+            id="outlined-required"
+            label="Repeat Password"
+            type="password"
+            style={{width:'300px', marginTop: '20px'}}
+            value={repeatPassword}
+            onChange={(e)=>setRepeatPassword(e.currentTarget.value)}
+          />
+          <Button color="success" size="large" style={{ marginTop: '20px'}} variant="contained" onClick={useSignUp}>Sign Up</Button>
         </div>
       </div>
-    </Box>
-    );
-  }
+  </Box>
+  );
 }
 
-export default SignUp;

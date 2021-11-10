@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom';
 
-class LogIn extends Component {
-  render() {
-    return (
-      <Box
+export default function LogIn ()  {  
+  return (
+    <Box
       component="form"
       noValidate
       autoComplete="off"
@@ -37,8 +36,5 @@ class LogIn extends Component {
         </div>
       </div>
     </Box>
-    );
-  }
+  );
 }
-
-export default LogIn;
