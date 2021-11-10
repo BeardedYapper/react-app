@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom';
 
-class LogIn extends Component {
+class SignUp extends Component {
   render() {
     return (
       <Box
@@ -16,7 +16,7 @@ class LogIn extends Component {
     >
       <div>
         <Typography variant="h3" style={{marginTop: '20px', marginBottom: '20px'}}>
-          Log In
+          Sign up
         </Typography>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '20px'}}>
           <TextField
@@ -32,8 +32,7 @@ class LogIn extends Component {
             type="password"
             style={{width:'300px', marginTop: '20px'}}
           />
-          <Button component={Link} to="/home" color="success" size="large" style={{ marginTop: '20px'}} variant="contained">Log in</Button>
-          <Typography variant="body1" style={{marginTop:'10px'}}>Don't have an account?<Link to="/signUp"> Sign up</Link></Typography>
+          <Button component={Link} to="/home" color="success" size="large" style={{ marginTop: '20px'}} variant="contained">Sign Up</Button>
         </div>
       </div>
     </Box>
@@ -41,4 +40,4 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export default SignUp;
