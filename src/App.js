@@ -1,6 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import LogIn from './LogIn'; 
+import LogIn from './LogIn';
+import Home from './Home';
+import SignUp from './SignUp';
+import Courses from './Courses/Courses';
+import Careers from './Careers/Careers';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,19 +25,24 @@ function App() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
           >
+            <Link style={{textDecoration: 'none', color: 'white'}} to="/home">
             <MenuIcon />
+            </Link>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            APP NAME HERE
           </Typography>
-          <Button color="inherit">Login</Button>
+         <Button color="inherit"> <Link style={{textDecoration: 'none', color: 'white'}} to="/login">Login</Link></Button>
         </Toolbar>
       </AppBar>
     </Box>
         <Routes>
         <Route path="/login" element={<LogIn />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/coursers" element={<Courses />} />
+        <Route path="/careers" element={<Careers />} />
         </Routes>
       </div>
     </Router>
