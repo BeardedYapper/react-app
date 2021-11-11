@@ -12,9 +12,13 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
+import {token} from './utils/global.utils';
 
 function App() {
-  const logged = localStorage.getItem("auth_token");
+  
+  const handleLogOut = () => {
+    window.localStorage.removeItem('auth_token');
+  };
   return (
     <Router>
       <div className="App">
@@ -27,15 +31,18 @@ function App() {
             color="inherit"
             aria-label="menu"
           >
-            <Link style={{textDecoration: 'none', color: 'white'}} to="/home">
+            <Link style={{textDecoration: 'none', color: 'white'}} to="/">
             <MenuIcon />
             </Link>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             APP NAME HERE
           </Typography>
-          {!logged && (
+          {!token && (
             <Button color="inherit"> <Link style={{textDecoration: 'none', color: 'white'}} to="/login">Login</Link></Button>
+          )}
+          {token && (
+            <Button color="inherit"> <Link style={{textDecoration: 'none', color: 'white'}} to="/login" onClick={handleLogOut}>Log Out</Link></Button>
           )}
         </Toolbar>
       </AppBar>
@@ -43,7 +50,7 @@ function App() {
         <Routes>
         <Route path="/login" element={<LogIn />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/coursers" element={<Courses />} />
         <Route path="/careers" element={<Careers />} />
         </Routes>

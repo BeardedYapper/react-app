@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -6,6 +6,9 @@ import { FormControl } from '@material-ui/core';
 import { TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
+import {token} from '../utils/global.utils';
+
+const axios = require('axios').default;
 
 const style = {
   position: 'absolute',
@@ -19,9 +22,27 @@ const style = {
   p: 4,
 };
 
-
-
 export default function CreateCourseModal(props) {
+  const [name,setName] = useState('');
+  const [description,setDescription] = useState('');
+
+  const useCreateCourse = async() => {
+    const header = `HTTP_AUTHORIZATION: Bearer ${token}`;
+    try {
+      const response = await axios.post('http://localhost:3001/course', {
+        course: {
+          description,
+          name
+        },
+        headers: {header}
+      });
+      const data = response.data;
+      console.log(data);
+      props.handleClose();
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <div>
       <Modal
@@ -38,22 +59,26 @@ export default function CreateCourseModal(props) {
           <Grid container spacing={4}>
                 <Grid item xs={6}>
                     <TextField
-                        required
-                        id="name"
-                        label="Name"
-                        fullWidth
+                      required
+                      id="name"
+                      label="Name"
+                      fullWidth
+                      value={name}
+                      onChange={(e)=>setName(e.currentTarget.value)}
                     />
                 </Grid>
                 <Grid item xs={6}>
                     <TextField
-                        required
-                        id="description"
-                        label="Description"
-                        fullWidth
+                      required
+                      id="description"
+                      label="Description"
+                      fullWidth
+                      value={description}
+                      onChange={(e)=>setDescription(e.currentTarget.value)}
                     />
                 </Grid>
             </Grid>
-            <Button color="success" size="large" style={{ marginTop: '20px'}} variant="contained" onClick={props.handleClose}>Create</Button>
+            <Button color="success" size="large" style={{ marginTop: '20px'}} variant="contained" onClick={useCreateCourse}>Create</Button>
          </FormControl>
         </Box>
       </Modal>

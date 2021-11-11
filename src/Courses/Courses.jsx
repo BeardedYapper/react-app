@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import CreateCourseModal from './CreateCourseModal';
+import {token} from '../utils/global.utils';
 const axios = require('axios').default;
 
 const columns = [
@@ -29,9 +30,12 @@ export default function Courses () {
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchGet = async () => {
+      const header = `HTTP_AUTHORIZATION: Bearer ${token}`;
       try {
-        const response = await axios.get('http://localhost:3001/courses');
+        const response = await axios.get('http://localhost:3001/courses', {
+          headers: {header}
+        });
         const data = response.data;
         console.log(response);
         console.log(data);
@@ -39,7 +43,7 @@ export default function Courses () {
         console.error(error);
       }
     };
-    fetchPosts();
+    fetchGet();
   }, []);
   return (
     <Box style={{margin: 'auto'}} padding={5}>

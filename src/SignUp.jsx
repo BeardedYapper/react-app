@@ -23,7 +23,7 @@ const navigate = useNavigate();
       });
       const data = response.data;
       localStorage.setItem("auth_token", data.auth_token);
-      navigate('/home')
+      navigate('/')
 
     } catch (error) {
       console.error(error);

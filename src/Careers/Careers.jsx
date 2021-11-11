@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import CreateCareerModal from './CreateCareerModal';
+import {token} from '../utils/global.utils';
+const axios = require('axios').default;
 
 const columns = [
   { field: 'id', headerName: 'ID', flex: true,resizable: true  },
@@ -32,6 +34,23 @@ const rows = [
 
 export default function Careers() {
   const [openCreateModal, setOpenCreateModal] = useState(false);
+
+  useEffect(() => {
+    const fetchGet = async () => {
+      const header = `HTTP_AUTHORIZATION: Bearer ${token}`;
+      try {
+        const response = await axios.get('http://localhost:3001/careers', {
+          headers: {header}
+        });
+        const data = response.data;
+        console.log(response);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchGet();
+  }, []);
   return (
     <Box style={{margin: 'auto'}} padding={5}>
       <div>
