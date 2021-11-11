@@ -14,7 +14,7 @@ const [repeatPassword,setRepeatPassword] = useState('');
 const navigate = useNavigate();
   const useSignUp = async() => {
     try {
-      const response = await axios.post('http://localhost:3001/users', {
+      const response = await axios.post('http://localhost:3000/users', {
         user: {
           email,
           password,

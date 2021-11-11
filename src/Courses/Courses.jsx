@@ -31,7 +31,7 @@ export default function Courses () {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/courses');
+        const response = await axios.get('http://localhost:3000/courses');
         const data = response.data;
         console.log(response);
         console.log(data);
