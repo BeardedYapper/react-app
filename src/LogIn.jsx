@@ -15,10 +15,8 @@ export default function LogIn ()  {
   const useLogIn = async() => {
     try {
       const response = await axios.post('http://localhost:3000/authenticate', {
-        authenticate: {
           email,
           password
-        }
       });
       const data = response.data;
       localStorage.setItem("auth_token", data.auth_token);
