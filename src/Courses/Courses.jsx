@@ -8,9 +8,9 @@ import {token} from '../utils/global.utils';
 const axios = require('axios').default;
 
 const columns = [
-  { field: 'id', headerName: 'ID', flex: true,resizable: true  },
-  { field: 'name', headerName: 'Name', flex: true, resizable: true },
-  { field: 'description', headerName: 'Description', flex: true, resizable: true },
+  { field: 'id', headerName: 'ID', flex: true  },
+  { field: 'name', headerName: 'Name', flex: true },
+  { field: 'description', headerName: 'Description', flex: true },
 ];
 
 

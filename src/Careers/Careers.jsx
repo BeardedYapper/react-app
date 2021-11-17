@@ -8,16 +8,16 @@ import {token} from '../utils/global.utils';
 const axios = require('axios').default;
 
 const columns = [
-  { field: 'id', headerName: 'ID', flex: true,resizable: true  },
-  { field: 'name', headerName: 'Name', flex: true, resizable: true },
-  { field: 'description', headerName: 'Description', flex: true, resizable: true },
-  { field: 'full_semesters', headerName: 'Semesters', flex: true, resizable: true },
-  { field: 'last_year_applicants_count', headerName: 'Last Year Applicants', flex: true, resizable: true },
-  { field: 'current_year_slots', headerName: 'Current Slots', flex: true, resizable: true },
-  { field: 'study_plan', headerName: 'Study Plan', flex: true, resizable: true },
-  { field: 'available', headerName: 'Available', flex: true, resizable: true },
-  { field: 'created_at', headerName: 'Created At', flex: true, resizable: true },
-  { field: 'updated_at', headerName: 'Updated At', flex: true, resizable: true },
+  { field: 'id', headerName: 'ID', flex: true },
+  { field: 'name', headerName: 'Name', flex: true },
+  { field: 'description', headerName: 'Description', flex: true },
+  { field: 'full_semesters', headerName: 'Semesters', flex: true },
+  { field: 'last_year_applicants_count', headerName: 'Last Year Applicants', flex: true },
+  { field: 'current_year_slots', headerName: 'Current Slots', flex: true },
+  { field: 'study_plan', headerName: 'Study Plan', flex: true },
+  { field: 'available', headerName: 'Available', flex: true },
+  { field: 'created_at', headerName: 'Created At', flex: true },
+  { field: 'updated_at', headerName: 'Updated At', flex: true },
 ];
 
 const rows = [
