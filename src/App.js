@@ -24,8 +24,8 @@ function App() {
       { path: "/", element: token ? <Home />: <LogIn/> },
       { path: "/login", element: <LogIn /> },
       { path: "/signUp", element: <SignUp /> },
-      { path: "/coursers", element: <Courses /> },
-      { path: "/careers", element: <Careers /> }
+      { path: "/coursers", element: token ? <Courses /> : <LogIn/> },
+      { path: "/careers", element: token ? <Careers /> : <LogIn/> }
     ]);
     return routes;
   };
@@ -47,7 +47,7 @@ function App() {
               </Link>
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              APP NAME HERE
+              SICE
             </Typography>
             {!token && (
               <Button color="inherit"> <Link style={{textDecoration: 'none', color: 'white'}} to="/login">Login</Link></Button>
