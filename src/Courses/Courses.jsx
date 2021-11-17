@@ -13,20 +13,9 @@ const columns = [
   { field: 'description', headerName: 'Description', flex: true, resizable: true },
 ];
 
-const rows = [
-  { id: 1, name: 'Snow', description: 'Jon'},
-  { id: 2, name: 'Lannister', description: 'Cersei'},
-  { id: 3, name: 'Lannister', description: 'Jaime' },
-  { id: 4, name: 'Stark', description: 'Arya' },
-  { id: 5, name: 'Targaryen', description: 'Daenerys'},
-  { id: 6, name: 'Melisandre', description: null },
-  { id: 7, name: 'Clifford', description: 'Ferrara' },
-  { id: 8, name: 'Frances', description: 'Rossini'},
-  { id: 9, name: 'Roxie', description: 'Harvey' },
-];
-
 
 export default function Courses () {
+  const [rows, setRows] = useState([]);
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
   useEffect(() => {
@@ -39,6 +28,7 @@ export default function Courses () {
           headers: header
         });
         const data = response.data;
+        setRows(data);
         console.log(response);
         console.log(data);
       } catch (error) {
