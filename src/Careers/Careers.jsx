@@ -37,10 +37,12 @@ export default function Careers() {
 
   useEffect(() => {
     const fetchGet = async () => {
-      const header = `HTTP_AUTHORIZATION: Bearer ${token}`;
+      const header = {
+        'Authorization': `Bearer ${token}`
+      }
       try {
         const response = await axios.get('http://localhost:3001/careers', {
-          headers: {header}
+          headers: header
         });
         const data = response.data;
         console.log(response);

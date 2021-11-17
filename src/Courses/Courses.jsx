@@ -31,10 +31,12 @@ export default function Courses () {
 
   useEffect(() => {
     const fetchGet = async () => {
-      const header = `HTTP_AUTHORIZATION: Bearer ${token}`;
+      const header = {
+        'Authorization': `Bearer ${token}`
+      }
       try {
         const response = await axios.get('http://localhost:3001/courses', {
-          headers: {header}
+          headers: header
         });
         const data = response.data;
         console.log(response);
