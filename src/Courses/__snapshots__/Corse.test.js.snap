@@ -182,11 +182,11 @@ exports[`Render Course page 1`] = `
                     class="MuiDataGrid-menuIcon"
                   >
                     <button
-                      aria-controls="mui-63333"
+                      aria-controls="mui-20181"
                       aria-haspopup="true"
                       aria-label="Menu"
                       class="MuiButtonBase-root MuiIconButton-root MuiDataGrid-menuIconButton MuiIconButton-sizeSmall"
-                      id="mui-30983"
+                      id="mui-23843"
                       tabindex="-1"
                       title="Menu"
                       type="button"
@@ -282,11 +282,11 @@ exports[`Render Course page 1`] = `
                     class="MuiDataGrid-menuIcon"
                   >
                     <button
-                      aria-controls="mui-66144"
+                      aria-controls="mui-53011"
                       aria-haspopup="true"
                       aria-label="Menu"
                       class="MuiButtonBase-root MuiIconButton-root MuiDataGrid-menuIconButton MuiIconButton-sizeSmall"
-                      id="mui-91994"
+                      id="mui-81519"
                       tabindex="-1"
                       title="Menu"
                       type="button"
