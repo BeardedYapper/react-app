@@ -30,14 +30,17 @@ export default function CreateCourseModal(props) {
     const header = {
       'Authorization': `Bearer ${token}`
     }
-    try {
-      const response = await axios.post('http://localhost:3000/courses', {
+    const data = {
         course: {
           description,
           name
-        },
-        headers: header
-      });
+        }
+    }
+    try {
+      const response = await axios.post('http://localhost:3000/courses', 
+        headers: header,
+        data
+      );
       const data = response.data;
       console.log(data);
       props.handleClose();
