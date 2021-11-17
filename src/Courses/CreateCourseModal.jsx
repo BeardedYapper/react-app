@@ -37,9 +37,8 @@ export default function CreateCourseModal(props) {
         }
     }
     try {
-      const response = await axios.post('http://localhost:3000/courses', {
-        headers: header,
-        data
+      const response = await axios.post('http://localhost:3000/courses', data, {
+        headers: header
       });
       const data = response.data;
       console.log(data);
