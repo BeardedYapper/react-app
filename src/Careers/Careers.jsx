@@ -41,7 +41,7 @@ export default function Careers() {
         'Authorization': `Bearer ${token}`
       }
       try {
-        const response = await axios.get('http://localhost:3001/careers', {
+        const response = await axios.get('http://localhost:3000/careers', {
           headers: header
         });
         const data = response.data;

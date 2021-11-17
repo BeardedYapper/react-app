@@ -35,7 +35,7 @@ export default function Courses () {
         'Authorization': `Bearer ${token}`
       }
       try {
-        const response = await axios.get('http://localhost:3001/courses', {
+        const response = await axios.get('http://localhost:3000/courses', {
           headers: header
         });
         const data = response.data;

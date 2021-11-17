@@ -14,7 +14,7 @@ export default function LogIn ()  {
   const navigate = useNavigate();
   const useLogIn = async() => {
     try {
-      const response = await axios.post('http://localhost:3001/authenticate', {
+      const response = await axios.post('http://localhost:3000/authenticate', {
         authenticate: {
           email,
           password
