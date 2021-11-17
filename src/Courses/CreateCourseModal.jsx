@@ -37,10 +37,10 @@ export default function CreateCourseModal(props) {
         }
     }
     try {
-      const response = await axios.post('http://localhost:3000/courses', 
+      const response = await axios.post('http://localhost:3000/courses', {
         headers: header,
         data
-      );
+      });
       const data = response.data;
       console.log(data);
       props.handleClose();
