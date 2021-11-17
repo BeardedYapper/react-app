@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, useRoutes } from 'react-router-dom';
 import LogIn from './LogIn';
 import Home from './Home';
 import SignUp from './SignUp';
@@ -19,6 +19,17 @@ function App() {
   const handleLogOut = () => {
     window.localStorage.removeItem('auth_token');
   };
+  const Routes = () => {
+    let routes = useRoutes([
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <LogIn /> },
+      { path: "/signUp", element: <SignUp /> },
+      { path: "/coursers", element: <Courses /> },
+      { path: "/careers", element: <Careers /> }
+    ]);
+    return routes;
+  };
+  
   return (
     <Router>
       <div className="App">
@@ -47,13 +58,7 @@ function App() {
         </Toolbar>
       </AppBar>
     </Box>
-        <Routes>
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/coursers" element={<Courses />} />
-        <Route path="/careers" element={<Careers />} />
-        </Routes>
+        <Routes />
       </div>
     </Router>
   );

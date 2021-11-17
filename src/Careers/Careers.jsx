@@ -68,6 +68,7 @@ export default function Careers() {
                 pageSize={10}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
+                columnBuffer={10}
             />
         </div>
         <CreateCareerModal open={openCreateModal} handleClose={()=>setOpenCreateModal(false)}/>

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Home page 1`] = `
+<div
+  class="MuiBox-root css-0"
+  style="margin-top: auto;"
+>
+  <div>
+    <h3
+      class="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
+      style="margin-top: 20px; margin-bottom: 20px;"
+    >
+      Home
+    </h3>
+    <div
+      style="display: flex; align-items: center; margin: 20px; justify-content: center;"
+    >
+      <a
+        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root  css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+        href="/coursers"
+        style="margin: 10px;"
+        tabindex="0"
+      >
+        Courses
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+      <a
+        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root  css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+        href="/careers"
+        style="margin: 10px;"
+        tabindex="0"
+      >
+        Careers
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;
