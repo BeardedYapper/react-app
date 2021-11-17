@@ -27,14 +27,16 @@ export default function CreateCourseModal(props) {
   const [description,setDescription] = useState('');
 
   const useCreateCourse = async() => {
-    const header = `HTTP_AUTHORIZATION: Bearer ${token}`;
+    const header = {
+      'Authorization': `Bearer ${token}`
+    }
     try {
       const response = await axios.post('http://localhost:3001/course', {
         course: {
           description,
           name
         },
-        headers: {header}
+        headers: header
       });
       const data = response.data;
       console.log(data);
