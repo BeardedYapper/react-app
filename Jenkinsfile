@@ -2,7 +2,12 @@ pipeline {
     agent any
     stages {
         stage('requirements') {
-            agent { docker { image 'node:14-alpine' } }
+            agent {
+              docker {
+                image 'node:latest' 
+                args '-u root:root'
+              } 
+            }
             steps {
                 sh 'npm install'
                 sh 'npm run test'
