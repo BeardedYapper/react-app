@@ -31,7 +31,7 @@ export default function CreateCourseModal(props) {
       'Authorization': `Bearer ${token}`
     }
     try {
-      const response = await axios.post('http://localhost:3000/course', {
+      const response = await axios.post('http://localhost:3000/courses', {
         course: {
           description,
           name
