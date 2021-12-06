@@ -1,4 +1,5 @@
 def remote = [:]
+remote.name = "devops-ssh"
 remote.host = "127.0.0.1"
 remote.port = "3022"
 remote.user = "devops"
