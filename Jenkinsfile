@@ -23,7 +23,7 @@ pipeline {
         }
 	stage('remote ssh') {
 	  steps {
-	    sshCommand remote: remote, command: "ls -lrt"
+	    sshCommand remote: remote, command: "echo 'hello jenkins lmao'"
 	  }
 	}
     }
