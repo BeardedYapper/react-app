@@ -7,23 +7,24 @@ remote.password = "chalo123"
 remote.allowAnyHosts = true
 
 pipeline {
-    agent any
+    agent {
+      docker {
+	image 'node:14-alpine' 
+	args '-u root:root'
+      } 
+    }
     stages {
         stage('requirements') {
-            agent {
-              docker {
-                image 'node:14-alpine' 
-                args '-u root:root'
-              } 
-            }
             steps {
                 sh 'npm install --cache=".YourCustomCacheDirectoryName"'
                 sh 'npm run test -- -u'
+		sh 'npm run build'
             }
         }
 	stage('remote ssh') {
 	  steps {
 	    sshCommand remote: remote, command: "echo 'hello jenkins lmao'"
+	    ssh
 	  }
 	}
     }
