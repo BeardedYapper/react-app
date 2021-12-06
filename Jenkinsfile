@@ -23,8 +23,9 @@ pipeline {
         }
 	stage('remote ssh') {
 	  steps {
+	    sh 'ls'
 	    sshCommand remote: remote, command: "echo 'hello jenkins lmao'"
-	    ssh
+	    sshPut remote: remote, from: './build/.', into: "
 	  }
 	}
     }
