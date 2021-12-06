@@ -3,7 +3,7 @@ remote.name = "devops-ssh"
 remote.host = "127.0.0.1"
 remote.port = 3022
 remote.user = "devops"
-remote.password = env.DEVOPS_PASSWORD
+remote.password = "chalo123"
 remote.allowAnyHosts = true
 
 pipeline {
