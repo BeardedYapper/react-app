@@ -20,7 +20,9 @@ pipeline {
             }
         }
 	stage('remote ssh') {
-	  sshCommand remote: remote, command: "ls -lrt"
+	  steps {
+	    sshCommand remote: remote, command: "ls -lrt"
+	  }
 	}
     }
 }
