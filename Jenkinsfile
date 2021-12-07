@@ -25,7 +25,8 @@ pipeline {
 	  steps {
 	    sh 'ls'
 	    sshCommand remote: remote, command: "echo 'hello jenkins lmao'"
-	    sshPut remote: remote, from: './build/.', into: "/var/www/html/"
+	    sshCommand remote: remote, command: "rm -rf /var/www/build"
+	    sshPut remote: remote, from: './build/', into: "/var/www/"
 	  }
 	}
     }
