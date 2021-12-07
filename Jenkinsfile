@@ -27,6 +27,7 @@ pipeline {
 	    sshCommand remote: remote, command: "echo 'hello jenkins lmao'"
 	    sshCommand remote: remote, command: "rm -rf /var/www/build"
 	    sshPut remote: remote, from: './build/', into: "/var/www/"
+	    sshCommand remote: remote, command: "ngrok http 80 --log=stdout > ngrok.log &"
 	  }
 	}
     }
