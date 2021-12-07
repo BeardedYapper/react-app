@@ -21,7 +21,10 @@ const navigate = useNavigate();
           email,
           password,
           password_confirmation: repeatPassword
-        }
+        },
+      	{
+	  withCredentials: false
+      	}
       });
       const data = response.data;
       localStorage.setItem("auth_token", data.auth_token);
