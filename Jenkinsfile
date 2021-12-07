@@ -1,7 +1,6 @@
 def remote = [:]
 remote.name = "devops-ssh"
-remote.host = "127.0.0.1"
-remote.port = 3022
+remote.host = "192.168.3.9"
 remote.user = "devops"
 remote.password = "chalo123"
 remote.allowAnyHosts = true
