@@ -6,6 +6,7 @@ import Button from '@mui/material/Button'
 import {useNavigate} from 'react-router-dom';
 
 const axios = require('axios').default;
+const { API_URL } = process.env;
 
 export default function SignUp () {
 const [email,setEmail] = useState('');
@@ -14,7 +15,7 @@ const [repeatPassword,setRepeatPassword] = useState('');
 const navigate = useNavigate();
   const useSignUp = async() => {
     try {
-      const response = await axios.post('http://localhost:3000/users', {
+      const response = await axios.post(API_URL + '/users', {
         user: {
           email,
           password,

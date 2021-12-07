@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import CreateCareerModal from './CreateCareerModal';
 import {token} from '../utils/global.utils';
 const axios = require('axios').default;
+const { API_URL } = process.env;
 
 const columns = [
   { field: 'id', headerName: 'ID', flex: true },
@@ -30,7 +31,7 @@ export default function Careers() {
         'Authorization': `Bearer ${token}`
       }
       try {
-        const response = await axios.get('http://localhost:3000/careers', {
+        const response = await axios.get(API_URL + '/careers', {
           headers: header
         });
         const data = response.data;
