@@ -23,13 +23,11 @@ const navigate = useNavigate();
           password_confirmation: repeatPassword
         },
       }, {      
-      	{
 	  headers: {
 		  'Access-Control-Allow-Origin' : '*',
 		  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',  
 	  },
 	  withCredentials: false
-      	}
       });
       const data = response.data;
       localStorage.setItem("auth_token", data.auth_token);
