@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import CreateCourseModal from './CreateCourseModal';
 import {token} from '../utils/global.utils';
 const axios = require('axios').default;
-const { API_URL } = process.env;
+const { REACT_APP_API_URL } = process.env;
 
 const columns = [
   { field: 'id', headerName: 'ID', flex: true  },
@@ -25,7 +25,7 @@ export default function Courses () {
         'Authorization': `Bearer ${token}`
       }
       try {
-        const response = await axios.get(API_URL + '/courses', {
+        const response = await axios.get(REACT_APP_API_URL + '/courses', {
           headers: header
         });
         const data = response.data;

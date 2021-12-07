@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
 import {token} from '../utils/global.utils';
 
-const { API_URL } = process.env;
+const { REACT_APP_API_URL } = process.env;
 const axios = require('axios').default;
 
 const style = {
@@ -32,7 +32,7 @@ export default function CreateCourseModal(props) {
       'Authorization': `Bearer ${token}`
     }
     try {
-      const response = await axios.post(API_URL + '/courses', { course: { description, name} }, {
+      const response = await axios.post(REACT_APP_API_URL + '/courses', { course: { description, name} }, {
         headers: header
       });
       const data = response.data;
