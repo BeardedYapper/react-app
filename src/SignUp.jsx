@@ -22,6 +22,7 @@ const navigate = useNavigate();
           password,
           password_confirmation: repeatPassword
         },
+      }, {      
       	{
 	  headers: {
 		  'Access-Control-Allow-Origin' : '*',
