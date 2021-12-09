@@ -36,7 +36,7 @@ export default function LogIn ()  {
     >
       <div>
         <Typography variant="h3" style={{marginTop: '20px', marginBottom: '20px'}}>
-          Log In
+          Iniciar Sesion
         </Typography>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '20px'}}>
           <TextField
